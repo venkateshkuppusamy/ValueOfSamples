@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Serialization;
+using ValueOfAPI.Models;
 using ValueOfAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+    options.SerializerSettings.Converters.Add(new ValueOfConverter());
 });
 builder.Services.AddScoped<IUserService, UserService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

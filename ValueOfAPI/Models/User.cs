@@ -13,6 +13,10 @@ namespace ValueOfAPI.Models
 
     public class BirthYearVO : ValueOf<int,BirthYearVO>
     {
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
         protected override bool TryValidate()
         {
             return Value > 2000 && Value < DateTime.Now.Year;
