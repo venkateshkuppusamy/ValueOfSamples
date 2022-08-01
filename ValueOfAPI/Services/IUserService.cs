@@ -13,13 +13,13 @@ namespace ValueOfAPI.Services
 
     public class UserService : IUserService
     {
-        private readonly List<User> _users;
+        private static readonly List<User> _users;
         private static int runningID;
 
-        public UserService()
+        static UserService()
         {
             _users = new List<User>();
-            _users.Add(new User() { Id = ++runningID, Age= AgeVO.From(20), BirthYear= BirthYearVO.From(2001), FullName="KP" });
+            _users.Add(new User() { Id = ++runningID, Age = AgeVO.From(20), BirthYear = BirthYearVO.From(2001), FullName = "KP" });
             _users.Add(new User() { Id = ++runningID, Age = AgeVO.From(22), BirthYear = BirthYearVO.From(2003), FullName = "VK" });
             _users.Add(new User() { Id = ++runningID, Age = AgeVO.From(23), BirthYear = BirthYearVO.From(2004), FullName = "SN" });
         }
